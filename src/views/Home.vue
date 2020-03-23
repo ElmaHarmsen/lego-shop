@@ -1,18 +1,32 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <section id="home">
+    <Header />
+    <Middle />
+    <Footer />
+  </section>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Header from "@/components/Header.vue";
+import Middle from "@/components/Middle.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: "Home",
+  data: function() {
+    return {};
+  },
   components: {
-    HelloWorld
+    Header,
+    Middle,
+    Footer
   }
 };
 </script>
+
+<style lang="scss">
+#home {
+  background-color: $background;
+  margin: 1.5rem;
+}
+</style>
