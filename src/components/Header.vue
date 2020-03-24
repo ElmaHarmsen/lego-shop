@@ -56,9 +56,9 @@ section {
     flex-flow: row wrap;
     position: fixed;
     z-index: 3;
-    top: 15px;
-    right: 10px;
-    width: 60px;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 55px;
     height: 50px;
     cursor: pointer;
 
