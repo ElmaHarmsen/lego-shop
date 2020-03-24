@@ -1,23 +1,23 @@
 <template>
   <section>
     <div class="content">
-      <h1>
-        LEGO <br />
-        universe
-      </h1>
+      <h2>Pick a Brick</h2>
+      <div>
+        <!--Switching content-->
+        <img v-bind:src="require('@/assets/random.jpg')" alt="" />
+        <p>Some nice content</p>
+      </div>
     </div>
-    <span class="line"></span>
   </section>
 </template>
 
 <script>
 export default {
-  name: "Header"
+  name: "HomePickABrick"
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style lang="scss" scoped>
 section {
   display: flex;
   flex-flow: column;
@@ -26,7 +26,6 @@ section {
 
   .content {
     padding: 1.5rem;
-    margin: auto 0px;
   }
 }
 </style>

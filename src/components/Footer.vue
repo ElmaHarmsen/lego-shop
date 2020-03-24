@@ -1,7 +1,8 @@
 <template>
   <section>
-    <div>
+    <div class="content">
       <h2>Bye</h2>
+      <em>Made by Elma Harmsen</em>
     </div>
   </section>
 </template>
@@ -18,11 +19,10 @@ section {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  height: 15vh;
   text-align: center;
 
-  div {
-    padding: 1rem;
+  .content {
+    padding: 1.5rem;
   }
 }
 </style>

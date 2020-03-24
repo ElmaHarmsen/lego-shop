@@ -27,6 +27,8 @@ export default {
 <style lang="scss">
 #home {
   background-color: $background;
-  margin: 1.5rem;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 175px 1fr 15%;
 }
 </style>
