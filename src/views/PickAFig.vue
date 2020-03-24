@@ -1,21 +1,22 @@
 <template>
   <section>
     <div class="content">
-      <h2>Bye</h2>
-      <em>Made by Elma Harmsen</em> <br />
-      <em>Visit me at elmaharmsen.nl</em>
+      <h1>
+        Pick <br />
+        a Fig
+      </h1>
     </div>
+    <span class="line"></span>
   </section>
 </template>
 
 <script>
 export default {
-  name: "Footer"
+  name: "PickAFig"
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style lang="scss" scoped>
 section {
   display: flex;
   flex-flow: column;

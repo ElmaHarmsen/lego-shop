@@ -1,21 +1,20 @@
 <template>
   <section>
-    <span class="line"></span>
     <div class="content">
-      <h2>Pick a Brick</h2>
+      <h2>Pick a Fig</h2>
       <div>
         <!--Switching content-->
         <img v-bind:src="require('@/assets/random.jpg')" alt="" />
         <p>Some nice content</p>
+        <!--slider with head, torso and legs, save it into database-->
       </div>
     </div>
-    <span class="line"></span>
-  </section>
-</template>
+  </section> </template
+>ø
 
 <script>
 export default {
-  name: "HomePickABrick"
+  name: "HomePickAFig"
 };
 </script>
 

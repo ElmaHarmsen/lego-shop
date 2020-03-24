@@ -37,8 +37,9 @@ em {
 .line {
   display: inline-block;
   height: 1px;
-  // width: calc(100% + 2rem) !important;
-  // margin-left: -1rem;
   width: 100%;
   background-color: $grey;
+}
+.link {
+  text-decoration: none;
 }

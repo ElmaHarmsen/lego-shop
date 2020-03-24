@@ -1,8 +1,21 @@
 <template>
   <section>
-    <HomePopular />
-    <home-anouncement />
-    <HomePickABrick />
+    <router-link v-bind:to="`/popularitems`" class="link">
+      <HomePopular />
+    </router-link>
+
+    <router-link v-bind:to="`/comingsoon`" class="link">
+      <HomeComingSoon />
+    </router-link>
+
+    <router-link v-bind:to="`/pickabrick`" class="link">
+      <HomePickABrick />
+    </router-link>
+
+    <router-link v-bind:to="`/pickafig`" class="link">
+      <HomePickAFig />
+    </router-link>
+
     <span class="line"></span>
   </section>
 </template>
@@ -10,14 +23,16 @@
 <script>
 import HomePopular from "./HomePopular.vue";
 import HomePickABrick from "./HomePickABrick.vue";
-import HomeAnouncement from "./HomeAnouncement.vue";
+import HomeComingSoon from "./HomeComingSoon.vue";
+import HomePickAFig from "./HomePickAFig.vue";
 
 export default {
   name: "Middle",
   components: {
     HomePopular,
     HomePickABrick,
-    HomeAnouncement
+    HomeComingSoon,
+    HomePickAFig
   }
 };
 </script>

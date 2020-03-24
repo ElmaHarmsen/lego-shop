@@ -1,7 +1,7 @@
 <template>
   <section
     v-bind:style="{
-      backgroundImage: 'url(' + require('@/assets/random-background.jpg') + ')'
+      backgroundImage: 'url(' + require('@/assets/lego-fiat.jpg') + ')'
     }"
   >
     <div class="content">
@@ -10,13 +10,12 @@
         <p>Some nice content</p>
       </div>
     </div>
-    <span class="line"></span>
   </section>
 </template>
 
 <script>
 export default {
-  name: "HomeAnouncement"
+  name: "HomeComingSoon"
 };
 </script>
 
@@ -28,13 +27,15 @@ section {
   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  margin: 1.5rem;
 
   .content {
     margin: 15rem 1.5rem 1.5rem 1.5rem;
     background-color: $background;
 
     .information {
-      padding: 0.5rem;
+      padding: 1rem 0.5rem;
     }
   }
 }
