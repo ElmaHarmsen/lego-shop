@@ -22,11 +22,11 @@ export default {
   data: function() {
     return {
       navContent: [
-        {
-          id: 0,
-          content: "Home",
-          path: "/"
-        },
+        // {
+        //   id: 0,
+        //   content: "Home",
+        //   path: "/"
+        // },
         {
           id: 1,
           content: "Popular Items",

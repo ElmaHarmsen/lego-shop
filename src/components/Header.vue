@@ -4,6 +4,7 @@
       <span class="nav-span"
         ><em>{{ navopen ? "close" : "open" }}</em></span
       >
+      <!--Is navopnen true, then say "close" in nav, otherwise say "open"-->
       <span class="nav-span"><em>menu</em></span>
       <span class="nav-span"></span>
     </div>
