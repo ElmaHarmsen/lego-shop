@@ -36,6 +36,7 @@ section {
 
     .information {
       padding: 1rem 0.5rem;
+      width: 100%;
     }
   }
 }

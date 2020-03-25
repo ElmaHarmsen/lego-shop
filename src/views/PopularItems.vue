@@ -1,13 +1,7 @@
 <template>
   <section>
-    <div class="header" id="header">
-      <router-link v-bind:to="`/`">
-        <div class="nav">
-          <span class="nav-span"></span>
-          <span class="nav-span"></span>
-          <span class="nav-span"></span>
-        </div>
-      </router-link>
+    <div class="header">
+      <!--nav-->
       <div class="header-content">
         <h1>
           POPULAR <br />
@@ -17,7 +11,7 @@
     </div>
     <span class="line"></span>
     <div class="content">
-      <!--Loop over data and create that many items of the content div-->
+      <!--Loop over data and create that many items of the content-item div-->
       <div class="content-item">
         <img v-bind:src="require('@/assets/lego-treehouse.jpg')" alt="" />
         <h2>LEGO Ideas Treehouse</h2>
@@ -44,26 +38,20 @@
       </div>
     </div>
     <span class="line"></span>
-    <div class="footer" v-on:click="backToTop">
-      <h2>
-        Back to<br />
-        TOP
-      </h2>
-    </div>
+    <BackToTop />
   </section>
 </template>
 
 <script>
+import BackToTop from "@/components/BackToTop.vue";
+
 export default {
   name: "PopularItems",
   data: function() {
     return {};
   },
-  methods: {
-    backToTop() {
-      window.location.hash = "header";
-      //Goes to the section with the id "header"
-    }
+  components: {
+    BackToTop
   }
 };
 </script>
@@ -80,42 +68,6 @@ section {
     justify-content: space-between;
     text-align: center;
 
-    .nav {
-      display: flex;
-      flex-flow: row wrap;
-      position: fixed;
-      z-index: 3;
-      top: 1.5rem;
-      right: 1.5rem;
-      width: 55px;
-      height: 50px;
-      cursor: pointer;
-
-      span:first-of-type {
-        width: 25px;
-        transform: rotate(-45deg);
-        margin-top: 10px;
-      }
-      span:nth-of-type(2) {
-        margin-left: 2px;
-      }
-      span:last-of-type {
-        width: 25px;
-        transform: rotate(45deg);
-        margin-bottom: 5px;
-      }
-      .nav-span {
-        width: 55px;
-        height: 1px;
-        background-color: $black;
-
-        em {
-          position: relative;
-          top: -15px;
-          font-size: 13px;
-        }
-      }
-    }
     .header-content {
       margin: auto 0px;
       padding: 1.5rem;
@@ -138,15 +90,11 @@ section {
       }
     }
     .line {
-      margin: 1rem 0px;
+      margin: 1.5rem 0px;
     }
     .results {
       text-align: center;
     }
-  }
-  .footer {
-    text-align: center;
-    padding: 1.5rem;
   }
 }
 </style>
