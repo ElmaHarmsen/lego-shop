@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="content">
-      <h2>Pick a Fig</h2>
+      <h2>Pick a Minifig</h2>
       <div>
         <!--Switching content-->
         <img v-bind:src="require('@/assets/random.jpg')" alt="" />
@@ -9,8 +9,9 @@
         <!--slider with head, torso and legs, save it into database-->
       </div>
     </div>
-  </section> </template
->ø
+    <span class="line"></span>
+  </section>
+</template>
 
 <script>
 export default {

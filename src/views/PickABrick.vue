@@ -33,6 +33,38 @@
         </div>
         <span class="line"></span>
       </div>
+
+      <div class="content-item">
+        <div class="content-img">
+          <img v-bind:src="require('@/assets/random.jpg')" alt="" />
+        </div>
+        <!--Long row with images, with overflow hidden, increase transform translateX + width of img-->
+        <div class="content-information">
+          <h2>Brick 1 x 1, Square</h2>
+          <div>
+            <p>Color</p>
+            <h1 v-on:click="goForward">>></h1>
+            <!--Button to go forward to next item-->
+          </div>
+        </div>
+        <span class="line"></span>
+      </div>
+
+      <div class="content-item">
+        <div class="content-img">
+          <img v-bind:src="require('@/assets/random.jpg')" alt="" />
+        </div>
+        <!--Long row with images, with overflow hidden, increase transform translateX + width of img-->
+        <div class="content-information">
+          <h2>Brick 1 x 1, Round</h2>
+          <div>
+            <p>Color</p>
+            <h1 v-on:click="goForward">>></h1>
+            <!--Button to go forward to next item-->
+          </div>
+        </div>
+        <span class="line"></span>
+      </div>
       <div class="results">
         <em>All results found</em>
       </div>

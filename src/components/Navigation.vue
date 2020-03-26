@@ -44,8 +44,13 @@ export default {
         },
         {
           id: 4,
-          content: "Pick a Fig",
+          content: "Pick a Minifig",
           path: "/pickafig"
+        },
+        {
+          id: 5,
+          content: "Your Collection",
+          path: "/yourcollection"
         }
       ]
     };

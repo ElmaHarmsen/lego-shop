@@ -16,6 +16,10 @@
       <HomePickAFig />
     </router-link>
 
+    <router-link v-bind:to="`/yourcollection`" class="link">
+      <HomeYourCollection />
+    </router-link>
+
     <span class="line"></span>
   </section>
 </template>
@@ -25,6 +29,7 @@ import HomePopular from "./HomePopular.vue";
 import HomePickABrick from "./HomePickABrick.vue";
 import HomeComingSoon from "./HomeComingSoon.vue";
 import HomePickAFig from "./HomePickAFig.vue";
+import HomeYourCollection from "./HomeYourCollection.vue";
 
 export default {
   name: "Middle",
@@ -32,7 +37,8 @@ export default {
     HomePopular,
     HomePickABrick,
     HomeComingSoon,
-    HomePickAFig
+    HomePickAFig,
+    HomeYourCollection
   }
 };
 </script>

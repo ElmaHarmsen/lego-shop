@@ -5,6 +5,7 @@ import PopularItems from "../views/PopularItems.vue";
 import ComingSoon from "../views/ComingSoon.vue";
 import PickABrick from "../views/PickABrick.vue";
 import PickAFig from "../views/PickAFig.vue";
+import YourCollection from "../views/YourCollection";
 
 Vue.use(VueRouter);
 
@@ -37,6 +38,12 @@ const routes = [
     path: "/pickafig",
     name: "PickAFig",
     component: PickAFig,
+    props: true
+  },
+  {
+    path: "/yourcollection",
+    name: "YourCollection",
+    component: YourCollection,
     props: true
   }
 ];
