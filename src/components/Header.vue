@@ -1,6 +1,10 @@
 <template>
   <section>
-    <div v-on:click="openNav" class="nav">
+    <div v-on:click="openUser()" class="user">
+      <img v-bind:src="require('@/assets/lego-user.png')" alt="" />
+    </div>
+    <User v-if="useropen" />
+    <div v-on:click="openNav()" class="nav">
       <span class="nav-span"
         ><em>{{ navopen ? "close" : "open" }}</em></span
       >
@@ -21,17 +25,20 @@
 </template>
 
 <script>
+import User from "./User.vue";
 import Navigation from "./Navigation.vue";
 
 export default {
   name: "Header",
   data: function() {
     return {
-      navopen: false
+      navopen: false,
+      useropen: false
       //By default it's not visible
     };
   },
   components: {
+    User,
     Navigation
   },
   methods: {
@@ -39,6 +46,9 @@ export default {
       this.navopen = !this.navopen;
       //This flips the value around,
       //meaning if it's already true it becomes false, and if it's false it becomes true
+    },
+    openUser() {
+      this.useropen = !this.useropen;
     }
   }
 };
@@ -52,16 +62,33 @@ section {
   justify-content: space-between;
   text-align: center;
 
-  .nav {
+  .user {
+    left: 1.5rem;
+    height: auto;
+    width: 45px;
+    z-index: 5;
+
+    img {
+      border: 1px solid $black;
+      border-radius: 50%;
+      padding: 0.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  .nav,
+  .user {
     display: flex;
     flex-flow: row wrap;
     position: fixed;
-    z-index: 3;
     top: 1.5rem;
+    cursor: pointer;
+  }
+  .nav {
     right: 1.5rem;
     width: 55px;
     height: 50px;
-    cursor: pointer;
+    z-index: 3;
 
     .nav-span {
       width: 55px;

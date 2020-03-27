@@ -13,9 +13,11 @@
     <div class="content-background">
       <div class="content">
         <div class="content-item">
-          <img v-bind:src="require('@/assets/random.jpg')" alt="" />
-          <h2>Name of Creation</h2>
-          <p>Some nice descpription</p>
+          <img v-bind:src="require('@/assets/lego-figure.png')" alt="" />
+          <div>
+            <h2>Hank</h2>
+            <p>Some nice descpription</p>
+          </div>
           <span class="line"></span>
         </div>
         <div class="content-item">
