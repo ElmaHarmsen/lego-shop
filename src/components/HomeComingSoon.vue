@@ -1,13 +1,15 @@
 <template>
-  <section
-    v-bind:style="{
-      backgroundImage: 'url(' + require('@/assets/lego-fiat.jpg') + ')'
-    }"
-  >
-    <div class="content">
-      <div class="information">
-        <h2>Coming Soon</h2>
-        <p>Some nice content</p>
+  <section>
+    <div v-if="loading" class="loading-wrapper">
+      <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
+    </div>
+    <div v-else class="background-content">
+      <div class="content">
+        <img v-bind:src="homeComingSoonsJson.images[1].img" alt="" />
+        <div class="information">
+          <h2>Coming Soon</h2>
+          <p>{{ homeComingSoonsJson.title }}</p>
+        </div>
       </div>
     </div>
   </section>
@@ -15,7 +17,24 @@
 
 <script>
 export default {
-  name: "HomeComingSoon"
+  name: "HomeComingSoon",
+  data: function() {
+    return {
+      loading: true,
+      homeComingSoonsJson: []
+    };
+  },
+  created: async function() {
+    await this.fetchData();
+    this.loading = false;
+  },
+  methods: {
+    async fetchData() {
+      const homeSoons = await fetch("http://localhost:8081/api/homecomingsoon");
+      console.log("api fetching works!" + homeSoons);
+      this.homeComingSoonsJson = await homeSoons.json();
+    }
+  }
 };
 </script>
 
@@ -28,15 +47,28 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  margin: 1.5rem;
-
-  .content {
-    margin: 15rem 1.5rem 1.5rem 1.5rem;
+  padding: 1.5rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    #0e9ab0,
+    #0e9ab0 15px,
+    #fff 15px,
+    #fff 30px
+  );
+  .background-content {
     background-color: $background;
 
-    .information {
-      padding: 1rem 0.5rem;
-      width: 100%;
+    .content {
+      img {
+        width: 100%;
+        height: auto;
+        padding-bottom: 1.5rem;
+      }
+
+      .information {
+        padding: 1.5rem 0rem;
+        width: 100%;
+      }
     }
   }
 }

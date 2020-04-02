@@ -1,11 +1,20 @@
 <template>
   <section>
-    <div class="background-content">
+    <!-- <div v-if="collection" class="background-content">
       <div class="content">
-        <img v-bind:src="require('@/assets/random.jpg')" alt="" />
+        <img v-bind:src="homeYourCollectionsJson.img" alt="" />
         <div class="information">
           <h2>Your Collection</h2>
-          <p>Name of the creation</p>
+          <p>{{ homeYourCollectionJson.description }}</p>
+        </div>
+      </div>
+    </div> -->
+    <div class="background-content">
+      <div class="content">
+        <img v-bind:src="require('@/assets/lego-heart.jpg')" alt="" />
+        <div class="information">
+          <h2>No Collection Yet</h2>
+          <p>Like a Lego!</p>
         </div>
       </div>
     </div>
@@ -14,7 +23,26 @@
 
 <script>
 export default {
-  name: "HomeYourCollection"
+  name: "HomeYourCollection",
+  data: function() {
+    return {
+      loading: true,
+      homeYourCollectionsJson: []
+    };
+  },
+  created: async function() {
+    await this.fetchData();
+    this.loading = false;
+  },
+  methods: {
+    async fetchData() {
+      const homeCollections = await fetch(
+        "http://localhost:8081/api/homeyourcollection"
+      );
+      console.log("api fetching works!" + homeCollections);
+      this.homeYourCollectionsJson = await homeCollections.json();
+    }
+  }
 };
 </script>
 
@@ -41,15 +69,14 @@ section {
     background-color: $background;
 
     .content {
-      margin: 1.5rem 1.5rem 1.5rem 1.5rem;
-
       img {
-        width: 80%;
+        width: 60%;
         height: auto;
+        padding: 1.5rem 0px;
       }
 
       .information {
-        padding: 1rem 0.5rem;
+        padding: 1.5rem 0rem;
         width: 100%;
       }
     }

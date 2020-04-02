@@ -1,11 +1,14 @@
 <template>
   <section>
-    <div class="content">
+    <div v-if="loading" class="loading-wrapper">
+      <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
+    </div>
+    <div v-else class="content">
       <h2>Popular Items</h2>
       <div>
         <!--Switching content-->
-        <img v-bind:src="require('@/assets/random.jpg')" alt="" />
-        <p>Some nice content</p>
+        <img v-bind:src="homePopularsJson.img" alt="" />
+        <p>{{ homePopularsJson.description }}</p>
       </div>
     </div>
     <span class="line"></span>
@@ -14,7 +17,26 @@
 
 <script>
 export default {
-  name: "HomePopular"
+  name: "HomePopular",
+  data: function() {
+    return {
+      loading: true,
+      homePopularsJson: []
+    };
+  },
+  created: async function() {
+    await this.fetchData();
+    this.loading = false;
+  },
+  methods: {
+    async fetchData() {
+      const homePopulars = await fetch(
+        "http://localhost:8081/api/homepopularitem"
+      );
+      console.log("api fetching works!" + homePopulars);
+      this.homePopularsJson = await homePopulars.json();
+    }
+  }
 };
 </script>
 
@@ -27,6 +49,12 @@ section {
 
   .content {
     padding: 1.5rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      padding: 1.5rem 0px;
+    }
   }
 }
 </style>

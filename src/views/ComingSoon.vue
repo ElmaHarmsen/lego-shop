@@ -11,59 +11,24 @@
     </div>
     <span class="line"></span>
     <div class="content">
-      <!--Loop over data and create that many items of the content div-->
       <div
         class="content-item"
-        v-bind:style="{
-          backgroundImage: 'url(' + require('@/assets/lego-fiat.jpg') + ')'
-        }"
+        v-for="comingSoon in comingSoonsJson"
+        v-bind:key="comingSoon.id"
       >
-        <div class="information">
-          <h2>LEGO Fiat 500</h2>
-          <p>Some nice description</p>
-        </div>
-      </div>
-      <div class="sub-information">
-        <p>Expected releasedate | setnumber | pieces</p>
+        <img v-bind:src="comingSoon.images[0].img" alt="" />
+        <h2>{{ comingSoon.title }}</h2>
+        <p>
+          {{ comingSoon.description }} <br />
+          <br />
+          {{ comingSoon.releasedate }} | #{{ comingSoon.setnumber }} | Pieces:
+          {{ comingSoon.pieces }}
+        </p>
         <span class="line"></span>
       </div>
-    </div>
-    <div class="content">
-      <div
-        class="content-item"
-        v-bind:style="{
-          backgroundImage: 'url(' + require('@/assets/lego-fiat.jpg') + ')'
-        }"
-      >
-        <div class="information">
-          <h2>LEGO Fiat 500</h2>
-          <p>Some nice description</p>
-        </div>
+      <div class="results">
+        <em>All results found</em>
       </div>
-      <div class="sub-information">
-        <p>Expected releasedate | setnumber | pieces</p>
-        <span class="line"></span>
-      </div>
-    </div>
-    <div class="content">
-      <div
-        class="content-item"
-        v-bind:style="{
-          backgroundImage: 'url(' + require('@/assets/lego-fiat.jpg') + ')'
-        }"
-      >
-        <div class="information">
-          <h2>LEGO Fiat 500</h2>
-          <p>Some nice description</p>
-        </div>
-      </div>
-      <div class="sub-information">
-        <p>Expected releasedate | setnumber | pieces</p>
-        <span class="line"></span>
-      </div>
-    </div>
-    <div class="results">
-      <em>All results found</em>
     </div>
     <span class="line"></span>
     <BackToTop />
@@ -75,8 +40,23 @@ import BackToTop from "@/components/BackToTop.vue";
 
 export default {
   name: "ComingSoon",
+  data: function() {
+    return {
+      comingSoonsJson: []
+    };
+  },
   components: {
     BackToTop
+  },
+  created: function() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      const comingSoons = await fetch("http://localhost:8081/api/comingsoon");
+      console.log("api fetching works!" + comingSoons);
+      this.comingSoonsJson = await comingSoons.json();
+    }
   }
 };
 </script>
@@ -105,25 +85,21 @@ section {
       display: flex;
       flex-flow: row wrap;
       text-align: left;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
 
-      .information {
-        margin: 15rem 1.5rem 1.5rem 1.5rem;
-        background-color: $background;
-        padding: 1rem 0.5rem;
+      img {
         width: 100%;
-        text-align: center;
+        height: auto;
+      }
+      h2 {
+        padding: 1rem 0px;
       }
     }
-    .sub-information {
-      padding: 1rem 0px 0px 0px;
+    .line {
+      margin: 1.5rem 0px;
     }
-  }
-  .results {
-    padding: 0px 0px 1.5rem 0px;
-    text-align: center;
+    .results {
+      text-align: center;
+    }
   }
 }
 </style>

@@ -11,26 +11,22 @@
     </div>
     <span class="line"></span>
     <div class="content">
-      <!--Loop over data and create that many items of the content-item div-->
-      <div class="content-item">
-        <img v-bind:src="require('@/assets/lego-treehouse.jpg')" alt="" />
-        <h2>LEGO Ideas Treehouse</h2>
-        <p>Some nice descpription</p>
-        <p>Set number | pieces | from year</p>
-        <span class="line"></span>
-      </div>
-      <div class="content-item">
-        <img v-bind:src="require('@/assets/lego-treehouse.jpg')" alt="" />
-        <h2>LEGO Ideas Treehouse</h2>
-        <p>Some nice descpription</p>
-        <p>Set number | pieces | from year</p>
-        <span class="line"></span>
-      </div>
-      <div class="content-item">
-        <img v-bind:src="require('@/assets/lego-treehouse.jpg')" alt="" />
-        <h2>LEGO Ideas Treehouse</h2>
-        <p>Some nice descpription</p>
-        <p>Set number | pieces | from year</p>
+      <div
+        class="content-item"
+        v-for="popularItem in popularItemsJson"
+        v-bind:key="popularItem.id"
+      >
+        <img v-bind:src="popularItem.img" alt="" />
+        <h2>{{ popularItem.title }}</h2>
+        <span class="material-icons">
+          favorite_border
+        </span>
+        <p>
+          {{ popularItem.description }} <br />
+          <br />
+          {{ popularItem.year }} | #{{ popularItem.setnumber }} | Pieces:
+          {{ popularItem.pieces }}
+        </p>
         <span class="line"></span>
       </div>
       <div class="results">
@@ -48,10 +44,24 @@ import BackToTop from "@/components/BackToTop.vue";
 export default {
   name: "PopularItems",
   data: function() {
-    return {};
+    return {
+      popularItemsJson: []
+    };
   },
   components: {
     BackToTop
+  },
+  created: function() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      const popularItems = await fetch(
+        "http://localhost:8081/api/popularitems"
+      );
+      console.log("api fetching works!" + popularItems);
+      this.popularItemsJson = await popularItems.json();
+    }
   }
 };
 </script>

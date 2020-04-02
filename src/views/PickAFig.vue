@@ -11,34 +11,30 @@
     </div>
     <span class="line"></span>
     <div class="content">
-      <div class="content-item">
+      <div
+        class="content-item"
+        v-for="pickFig in pickFigsJson"
+        v-bind:key="pickFig.id"
+      >
         <div class="content-img">
-          <img v-bind:src="require('@/assets/lego-hat.png')" alt="" />
-          <h1>>></h1>
+          <img
+            v-for="image in pickFigsJson"
+            v-bind:key="image.id"
+            alt=""
+            v-bind:src="pickFig.img"
+            class="brick-img"
+          />
+        </div>
+        <div>
+          <p>{{ pickFig.type }}</p>
+          <h1 v-on:click="goForward">>></h1>
         </div>
         <span class="line"></span>
       </div>
-      <div class="content-item">
-        <div class="content-img">
-          <img v-bind:src="require('@/assets/lego-head.webp')" alt="" />
-          <h1>>></h1>
-        </div>
-        <span class="line"></span>
+      <div class="results">
+        <em>All results found</em>
       </div>
-      <div class="content-item">
-        <div class="content-img">
-          <img v-bind:src="require('@/assets/lego-torso1.png')" alt="" />
-          <h1>>></h1>
-        </div>
-        <span class="line"></span>
-      </div>
-      <div class="content-item">
-        <div class="content-img">
-          <img v-bind:src="require('@/assets/lego-legs.png')" alt="" />
-          <h1>>></h1>
-        </div>
-        <span class="line"></span>
-      </div>
+      <span class="line"></span>
       <div class="submit" v-on:click="submit()">
         <h1>
           Create <br />
@@ -56,10 +52,35 @@ import BackToTop from "@/components/BackToTop.vue";
 
 export default {
   name: "PickAFig",
+  data: function() {
+    return {
+      currentImageIndex: 0,
+      pickFigsJson: []
+    };
+  },
   components: {
     BackToTop
   },
+  created: function() {
+    this.fetchData();
+  },
   methods: {
+    async fetchData() {
+      const pickFigs = await fetch("http://localhost:8081/api/pickafig");
+      console.log("api fetching works!" + pickFigs);
+      this.pickFigsJson = await pickFigs.json();
+    },
+    goForward() {
+      const imageWidth = document.querySelector(".brick-img").clientWidth;
+      this.currentImageIndex++;
+      if (this.pickFigsJson.length <= this.currentImageIndex) {
+        this.currentImageIndex = 0;
+      } //Sets the index of the last item to 0 so it goes back and start from the beginning
+      document.querySelector(
+        ".content-img"
+      ).style.transform = `translateX(-${imageWidth *
+        this.currentImageIndex}px)`;
+    },
     submit() {}
   }
 };
@@ -90,22 +111,28 @@ section {
       flex-flow: row wrap;
 
       .content-img {
-        width: 100%;
         display: flex;
         flex-flow: row nowrap;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         transition: 0.5s ease;
         //transform: translateX(-275px); //increases with the width of the img which is 275px
 
         img {
-          width: 250px;
+          width: 200px;
           height: auto;
+          padding: 0px 1.5rem;
         }
+      }
+      p {
+        padding: 0.5rem;
       }
     }
     .line {
       margin: 1.5rem 0px;
+    }
+    .results {
+      text-align: center;
     }
     .submit {
       text-align: center;

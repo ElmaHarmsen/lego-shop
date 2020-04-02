@@ -11,56 +11,25 @@
     </div>
     <span class="line"></span>
     <div class="content">
-      <!--Loop over data and create that many items of the content-item div-->
-      <div class="content-item">
+      <div
+        class="content-item"
+        v-for="pickBrick in pickBricksJson"
+        v-bind:key="pickBrick.id"
+      >
         <div class="content-img">
           <img
-            v-for="image in contentImage"
+            v-for="image in pickBricksJson"
             v-bind:key="image.id"
             alt=""
-            v-bind:src="image.src"
+            v-bind:src="pickBrick.img"
             class="brick-img"
           />
         </div>
-        <!--Long row with images, with overflow hidden, increase transform translateX + width of img-->
         <div class="content-information">
-          <h2>Brick 2 x 2, Square</h2>
+          <h2>{{ pickBrick.type }}, {{ pickBrick.shape }}</h2>
           <div>
-            <p>{{ contentImage[currentImageIndex].color }}</p>
+            <p>{{ pickBrick.color }}</p>
             <h1 v-on:click="goForward">>></h1>
-            <!--Button to go forward to next item-->
-          </div>
-        </div>
-        <span class="line"></span>
-      </div>
-
-      <div class="content-item">
-        <div class="content-img">
-          <img v-bind:src="require('@/assets/random.jpg')" alt="" />
-        </div>
-        <!--Long row with images, with overflow hidden, increase transform translateX + width of img-->
-        <div class="content-information">
-          <h2>Brick 1 x 1, Square</h2>
-          <div>
-            <p>Color</p>
-            <h1 v-on:click="goForward">>></h1>
-            <!--Button to go forward to next item-->
-          </div>
-        </div>
-        <span class="line"></span>
-      </div>
-
-      <div class="content-item">
-        <div class="content-img">
-          <img v-bind:src="require('@/assets/random.jpg')" alt="" />
-        </div>
-        <!--Long row with images, with overflow hidden, increase transform translateX + width of img-->
-        <div class="content-information">
-          <h2>Brick 1 x 1, Round</h2>
-          <div>
-            <p>Color</p>
-            <h1 v-on:click="goForward">>></h1>
-            <!--Button to go forward to next item-->
           </div>
         </div>
         <span class="line"></span>
@@ -72,6 +41,8 @@
     <span class="line"></span>
     <BackToTop />
   </section>
+  <!--color picker-->
+  <!--loader for images-->
 </template>
 
 <script>
@@ -83,36 +54,25 @@ export default {
   data: function() {
     return {
       currentImageIndex: 0,
-      contentImage: [
-        {
-          id: 0,
-          type: "square",
-          src: require("@/assets/lego-brick.png"),
-          color: "Middle Green"
-        },
-        {
-          id: 1,
-          type: "square",
-          src: require("@/assets/lego-brick2orange.png"),
-          color: "Orange"
-        },
-        {
-          id: 2,
-          type: "square",
-          src: require("@/assets/lego-brick2red.png"),
-          color: "Red"
-        }
-      ]
+      pickBricksJson: []
     };
   },
   components: {
     BackToTop
   },
+  created: function() {
+    this.fetchData();
+  },
   methods: {
+    async fetchData() {
+      const pickBricks = await fetch("http://localhost:8081/api/pickabrick");
+      console.log("api fetching works!" + pickBricks);
+      this.pickBricksJson = await pickBricks.json();
+    },
     goForward() {
       const imageWidth = document.querySelector(".brick-img").clientWidth;
       this.currentImageIndex++;
-      if (this.contentImage.length <= this.currentImageIndex) {
+      if (this.pickBricksJson.length <= this.currentImageIndex) {
         this.currentImageIndex = 0;
       } //Sets the index of the last item to 0 so it goes back and start from the beginning
       document.querySelector(

@@ -12,7 +12,18 @@
     <span class="line"></span>
     <div class="content-background">
       <div class="content">
-        <div class="content-item">
+        <div
+          class="content-item"
+          v-for="yourCollection in yourCollectionsJson"
+          v-bind:key="yourCollection.id"
+        >
+          <div>
+            <h2>{{ yourCollection.name }}</h2>
+            <p>{{ yourCollection.description }}</p>
+          </div>
+          <span class="line"></span>
+        </div>
+        <!-- <div class="content-item">
           <img v-bind:src="require('@/assets/lego-figure.png')" alt="" />
           <div>
             <h2>Hank</h2>
@@ -31,7 +42,7 @@
           <h2>Name of Creation</h2>
           <p>Some nice descpription</p>
           <span class="line"></span>
-        </div>
+        </div> -->
         <div class="results">
           <em>All results found</em>
         </div>
@@ -47,8 +58,25 @@ import BackToTop from "@/components/BackToTop.vue";
 
 export default {
   name: "YourCollection",
+  data: function() {
+    return {
+      yourCollectionsJson: []
+    };
+  },
   components: {
     BackToTop
+  },
+  created: function() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      const yourCollections = await fetch(
+        "http://localhost:8081/api/yourcollection"
+      );
+      console.log("api fetching works!" + yourCollections);
+      this.yourCollectionsJson = await yourCollections.json();
+    }
   }
 };
 </script>

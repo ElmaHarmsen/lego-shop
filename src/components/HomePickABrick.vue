@@ -1,12 +1,15 @@
 <template>
   <section>
     <span class="line"></span>
-    <div class="content">
+    <div v-if="loading" class="loading-wrapper">
+      <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
+    </div>
+    <div v-else class="content">
       <h2>Pick a Brick</h2>
       <div>
         <!--Switching content-->
-        <img v-bind:src="require('@/assets/random.jpg')" alt="" />
-        <p>Some nice content</p>
+        <img v-bind:src="homeBricksJson.img" alt="" />
+        <p>{{ homeBricksJson.shape }}, {{ homeBricksJson.color }}</p>
       </div>
     </div>
     <span class="line"></span>
@@ -15,7 +18,26 @@
 
 <script>
 export default {
-  name: "HomePickABrick"
+  name: "HomePickABrick",
+  data: function() {
+    return {
+      loading: true,
+      homeBricksJson: []
+    };
+  },
+  created: async function() {
+    await this.fetchData();
+    this.loading = false;
+  },
+  methods: {
+    async fetchData() {
+      const homeBricks = await fetch(
+        "http://localhost:8081/api/homepickabrick"
+      );
+      console.log("api fetching works!" + homeBricks);
+      this.homeBricksJson = await homeBricks.json();
+    }
+  }
 };
 </script>
 
@@ -28,6 +50,12 @@ section {
 
   .content {
     padding: 1.5rem;
+
+    img {
+      width: 60%;
+      height: auto;
+      padding: 1.5rem 0px;
+    }
   }
 }
 </style>
