@@ -16,18 +16,7 @@
         v-for="popularItem in popularItemsJson"
         v-bind:key="popularItem.id"
       >
-        <img v-bind:src="popularItem.img" alt="" />
-        <h2>{{ popularItem.title }}</h2>
-        <span class="material-icons">
-          favorite_border
-        </span>
-        <p>
-          {{ popularItem.description }} <br />
-          <br />
-          {{ popularItem.year }} | #{{ popularItem.setnumber }} | Pieces:
-          {{ popularItem.pieces }}
-        </p>
-        <span class="line"></span>
+        <LegoItem v-bind:legoData="popularItem" />
       </div>
       <div class="results">
         <em>All results found</em>
@@ -39,6 +28,7 @@
 </template>
 
 <script>
+import LegoItem from "@/components/LegoItem.vue";
 import BackToTop from "@/components/BackToTop.vue";
 
 export default {
@@ -49,6 +39,7 @@ export default {
     };
   },
   components: {
+    LegoItem,
     BackToTop
   },
   created: function() {
@@ -86,22 +77,6 @@ section {
   .content {
     padding: 1.5rem;
 
-    .content-item {
-      display: flex;
-      flex-flow: row wrap;
-      text-align: left;
-
-      img {
-        width: 100%;
-        height: auto;
-      }
-      h2 {
-        padding: 1rem 0px;
-      }
-    }
-    .line {
-      margin: 1.5rem 0px;
-    }
     .results {
       text-align: center;
     }
