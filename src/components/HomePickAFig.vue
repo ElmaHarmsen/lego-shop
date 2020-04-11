@@ -7,7 +7,7 @@
       <h2>Pick a Minifig</h2>
       <div>
         <!--Switching content-->
-        <img v-bind:src="homeFigsJson.img" alt="" />
+        <img v-bind:src="require(`@/assets/${homeFigsJson.img}`)" alt="" />
         <p>{{ homeFigsJson.description }}</p>
         <!--slider with head, torso and legs, save it into database-->
       </div>
@@ -31,8 +31,9 @@ export default {
   },
   methods: {
     async fetchData() {
-      const homeFigs = await fetch("http://localhost:8081/api/homepickafig");
-      console.log("api fetching works!" + homeFigs);
+      const homeFigs = await fetch(
+        "https://lego--api.herokuapp.com/api/homepickafig"
+      );
       this.homeFigsJson = await homeFigs.json();
     }
   }

@@ -32,9 +32,8 @@ export default {
   methods: {
     async fetchData() {
       const homeBricks = await fetch(
-        "http://localhost:8081/api/homepickabrick"
+        "https://lego--api.herokuapp.com/api/homepickabrick"
       );
-      console.log("api fetching works!" + homeBricks);
       this.homeBricksJson = await homeBricks.json();
     }
   }

@@ -31,9 +31,8 @@ export default {
   methods: {
     async fetchData() {
       const homePopulars = await fetch(
-        "http://localhost:8081/api/homepopularitem"
+        "https://lego--api.herokuapp.com/api/homepopularitem"
       );
-      console.log("api fetching works!" + homePopulars);
       this.homePopularsJson = await homePopulars.json();
     }
   }

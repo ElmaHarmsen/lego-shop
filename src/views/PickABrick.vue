@@ -65,8 +65,9 @@ export default {
   },
   methods: {
     async fetchData() {
-      const pickBricks = await fetch("http://localhost:8081/api/pickabrick");
-      console.log("api fetching works!" + pickBricks);
+      const pickBricks = await fetch(
+        "https://lego--api.herokuapp.com/api/pickabrick"
+      );
       this.pickBricksJson = await pickBricks.json();
     },
     goForward() {

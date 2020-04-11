@@ -21,7 +21,7 @@
             v-for="image in pickFigsJson"
             v-bind:key="image.id"
             alt=""
-            v-bind:src="pickFig.img"
+            v-bind:src="require(`@/assets/${pickFig.img}`)"
             class="brick-img"
           />
         </div>
@@ -66,8 +66,9 @@ export default {
   },
   methods: {
     async fetchData() {
-      const pickFigs = await fetch("http://localhost:8081/api/pickafig");
-      console.log("api fetching works!" + pickFigs);
+      const pickFigs = await fetch(
+        "https://lego--api.herokuapp.com/api/pickafig"
+      );
       this.pickFigsJson = await pickFigs.json();
     },
     goForward() {

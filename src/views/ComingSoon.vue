@@ -72,8 +72,9 @@ export default {
   },
   methods: {
     async fetchData() {
-      const comingSoons = await fetch("http://localhost:8081/api/comingsoon");
-      console.log("api fetching works!" + comingSoons);
+      const comingSoons = await fetch(
+        "https://lego--api.herokuapp.com/api/comingsoon"
+      );
       this.comingSoonsJson = await comingSoons.json();
     }
   }
