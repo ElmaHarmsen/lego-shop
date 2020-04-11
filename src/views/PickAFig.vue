@@ -120,7 +120,7 @@ section {
         //transform: translateX(-275px); //increases with the width of the img which is 275px
 
         img {
-          width: 200px;
+          width: 50px;
           height: auto;
           padding: 0px 1.5rem;
         }

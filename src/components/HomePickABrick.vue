@@ -51,7 +51,7 @@ section {
     padding: 1.5rem;
 
     img {
-      width: 60%;
+      width: 90px;
       height: auto;
       padding: 1.5rem 0px;
     }
