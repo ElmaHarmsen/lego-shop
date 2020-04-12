@@ -10,7 +10,10 @@
       </div>
     </div>
     <span class="line"></span>
-    <div class="content">
+    <div v-if="loading" class="loading-wrapper">
+      <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
+    </div>
+    <div v-else class="content">
       <div
         class="content-item"
         v-for="pickFig in pickFigsJson"
@@ -55,6 +58,7 @@ export default {
   name: "PickAFig",
   data: function() {
     return {
+      loading: true,
       currentImageIndex: 0,
       pickFigsJson: []
     };
@@ -63,8 +67,9 @@ export default {
     BackToHome,
     BackToTop
   },
-  created: function() {
-    this.fetchData();
+  created: async function() {
+    await this.fetchData();
+    this.loading = false;
   },
   methods: {
     async fetchData() {

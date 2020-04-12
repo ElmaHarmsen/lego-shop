@@ -3,7 +3,8 @@
     <div class="content">
       <h2>Bye</h2>
       <em>Made by Elma Harmsen</em> <br />
-      <em>Visit me at elmaharmsen.nl</em>
+      <em>Visit me at </em
+      ><a href="https://elmaharmsen.nl/" target="blank">elmaharmsen.nl</a>
     </div>
   </section>
 </template>
@@ -24,6 +25,13 @@ section {
 
   .content {
     padding: 1.5rem;
+
+    a {
+      text-decoration: underline;
+      color: $black;
+      font-size: 12px;
+      font-family: "halant";
+    }
   }
 }
 </style>

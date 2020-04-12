@@ -10,7 +10,10 @@
       </div>
     </div>
     <span class="line"></span>
-    <div class="content-background">
+    <div v-if="loading" class="loading-wrapper">
+      <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
+    </div>
+    <div v-else class="content-background">
       <div class="content">
         <div
           class="content-item"
@@ -41,6 +44,7 @@ export default {
   name: "YourCollection",
   data: function() {
     return {
+      loading: true,
       yourCollectionsJson: []
     };
   },
@@ -48,8 +52,9 @@ export default {
     BackToHome,
     BackToTop
   },
-  created: function() {
-    this.fetchData();
+  created: async function() {
+    await this.fetchData();
+    this.loading = false;
   },
   methods: {
     async fetchData() {

@@ -10,7 +10,10 @@
       </div>
     </div>
     <span class="line"></span>
-    <div class="content">
+    <div v-if="loading" class="loading-wrapper">
+      <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
+    </div>
+    <div v-else class="content">
       <div
         class="content-item"
         v-for="popularItem in popularItemsJson"
@@ -36,6 +39,7 @@ export default {
   name: "PopularItems",
   data: function() {
     return {
+      loading: true,
       popularItemsJson: []
     };
   },
@@ -44,8 +48,9 @@ export default {
     LegoItem,
     BackToTop
   },
-  created: function() {
-    this.fetchData();
+  created: async function() {
+    await this.fetchData();
+    this.loading = false;
   },
   methods: {
     async fetchData() {

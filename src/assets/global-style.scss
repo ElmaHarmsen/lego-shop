@@ -32,7 +32,7 @@ p {
 em {
   color: $black;
   font-family: "halant";
-  font-size: 10px;
+  font-size: 12px;
 }
 .line {
   display: inline-block;
@@ -45,6 +45,7 @@ em {
 }
 .loading-wrapper {
   background-color: $background;
+  text-align: center;
 
   img {
     width: 70px;
