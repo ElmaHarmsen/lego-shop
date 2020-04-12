@@ -5,11 +5,8 @@
     </div>
     <div v-else class="content">
       <h2>Popular Items</h2>
-      <div>
-        <!--Switching content-->
-        <img v-bind:src="homePopularsJson.img" alt="" />
-        <p>{{ homePopularsJson.description }}</p>
-      </div>
+      <p>{{ homePopularsJson.description }}</p>
+      <img v-bind:src="homePopularsJson.img" alt="" />
     </div>
     <span class="line"></span>
   </section>

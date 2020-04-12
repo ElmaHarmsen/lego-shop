@@ -5,11 +5,8 @@
     </div>
     <User v-if="useropen" />
     <div v-on:click="openNav()" class="nav">
-      <span class="nav-span"
-        ><em>{{ navopen ? "close" : "open" }}</em></span
-      >
-      <!--Is navopnen true, then say "close" in nav, otherwise say "open"-->
-      <span class="nav-span"><em>menu</em></span>
+      <span class="nav-span"></span>
+      <span class="nav-span"></span>
       <span class="nav-span"></span>
     </div>
     <Navigation v-if="navopen" />
@@ -63,43 +60,53 @@ section {
   text-align: center;
 
   .user {
+    position: fixed;
     left: 1.5rem;
-    height: auto;
-    width: 45px;
+    top: 1.5rem;
     z-index: 5;
+    cursor: pointer;
+    height: auto;
+    width: calc(45px - 2px);
+    border: 1px solid $black;
+    border-radius: 50%;
 
     img {
-      border: 1px solid $black;
-      border-radius: 50%;
       padding: 0.5rem;
       width: 1.5rem;
     }
   }
 
-  .nav,
-  .user {
-    display: flex;
-    flex-flow: row wrap;
+  .nav {
     position: fixed;
     top: 1.5rem;
-    cursor: pointer;
-  }
-  .nav {
     right: 1.5rem;
-    width: 55px;
-    height: 50px;
     z-index: 3;
+    cursor: pointer;
+    height: calc(42px - 2px);
+    width: calc(45px - 2px);
+    right: 1.5rem;
+    border: 1px solid $black;
+    border-radius: 50%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
 
     .nav-span {
-      width: 55px;
+      width: 25px;
       height: 1px;
-      margin: 5px 0px;
       background-color: $black;
-
-      em {
-        font-size: 13px;
-      }
+      margin: 3px;
     }
+    // span:first-of-type {
+    //   margin: 8px auto 2.5px;
+    // }
+    // span:nth-of-type(2) {
+    //   margin: 2.5px auto;
+    // }
+    // span:last-of-type {
+    //   margin: 2.5px auto 8px;
+    // }
   }
 
   .content {
