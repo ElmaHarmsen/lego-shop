@@ -1,11 +1,11 @@
 <template>
   <section>
     <div class="header">
-      <!--nav-->
+      <BackToHome />
       <div class="header-content">
         <h1>
           Pick a<br />
-          BRICK
+          brick
         </h1>
       </div>
     </div>
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import BackToHome from "@/components/BackToHome.vue";
 import BackToTop from "@/components/BackToTop.vue";
 
 export default {
@@ -58,6 +59,7 @@ export default {
     };
   },
   components: {
+    BackToHome,
     BackToTop
   },
   created: function() {
@@ -99,7 +101,7 @@ section {
 
     .header-content {
       margin: auto 0px;
-      padding: 1.5rem;
+      padding: 1.5rem 1.5rem 0rem 1.5rem;
     }
   }
   .content {

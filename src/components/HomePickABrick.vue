@@ -9,7 +9,7 @@
       <div>
         <!--Switching content-->
         <img v-bind:src="homeBricksJson.img" alt="" />
-        <p>{{ homeBricksJson.shape }}, {{ homeBricksJson.color }}</p>
+        <!-- <p>{{ homeBricksJson.shape }}, {{ homeBricksJson.color }}</p> -->
       </div>
     </div>
     <span class="line"></span>

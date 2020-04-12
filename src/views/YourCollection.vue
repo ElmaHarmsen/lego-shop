@@ -1,11 +1,11 @@
 <template>
   <section>
     <div class="header">
-      <!--nav-->
+      <BackToHome />
       <div class="header-content">
         <h1>
-          YOUR <br />
-          Collection
+          Your <br />
+          collection
         </h1>
       </div>
     </div>
@@ -23,26 +23,6 @@
           </div>
           <span class="line"></span>
         </div>
-        <!-- <div class="content-item">
-          <img v-bind:src="require('@/assets/lego-figure.png')" alt="" />
-          <div>
-            <h2>Hank</h2>
-            <p>Some nice descpription</p>
-          </div>
-          <span class="line"></span>
-        </div>
-        <div class="content-item">
-          <img v-bind:src="require('@/assets/random.jpg')" alt="" />
-          <h2>Name of Creation</h2>
-          <p>Some nice descpription</p>
-          <span class="line"></span>
-        </div>
-        <div class="content-item">
-          <img v-bind:src="require('@/assets/random.jpg')" alt="" />
-          <h2>Name of Creation</h2>
-          <p>Some nice descpription</p>
-          <span class="line"></span>
-        </div> -->
         <div class="results">
           <em>All results found</em>
         </div>
@@ -54,6 +34,7 @@
 </template>
 
 <script>
+import BackToHome from "@/components/BackToHome.vue";
 import BackToTop from "@/components/BackToTop.vue";
 
 export default {
@@ -64,6 +45,7 @@ export default {
     };
   },
   components: {
+    BackToHome,
     BackToTop
   },
   created: function() {
@@ -94,7 +76,7 @@ section {
 
     .header-content {
       margin: auto 0px;
-      padding: 1.5rem;
+      padding: 1.5rem 1.5rem 0rem 1.5rem;
     }
   }
   .content-background {
