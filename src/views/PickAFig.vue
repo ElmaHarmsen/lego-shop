@@ -14,35 +14,34 @@
       <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
     </div>
     <div v-else class="content">
-      <div
-        class="content-item"
-        v-for="pickFig in pickFigsJson"
-        v-bind:key="pickFig.id"
-      >
-        <div class="content-img">
-          <img
-            v-for="image in pickFigsJson"
-            v-bind:key="image.id"
-            alt=""
-            v-bind:src="require(`@/assets/${pickFig.img}`)"
-            class="brick-img"
-          />
+      <div class="content-item">
+        <div
+          class="content-img"
+          v-for="pickFig in yellowFaced"
+          v-bind:key="pickFig.id"
+        >
+          <LegoHead v-bind:pickFig="pickFig" />
         </div>
-        <div>
-          <p>{{ pickFig.type }}</p>
-          <h1 v-on:click="goForward">>></h1>
+        <span class="line"></span>
+        <div
+          class="content-img"
+          v-for="pickFig in skinFaced"
+          v-bind:key="pickFig.id"
+        >
+          <LegoHead v-bind:pickFig="pickFig" />
+        </div>
+        <span class="line"></span>
+        <div
+          class="content-img"
+          v-for="pickFig in specialFaced"
+          v-bind:key="pickFig.id"
+        >
+          <LegoHead v-bind:pickFig="pickFig" />
         </div>
         <span class="line"></span>
       </div>
       <div class="results">
         <em>All results found</em>
-      </div>
-      <span class="line"></span>
-      <div class="submit" v-on:click="submit()">
-        <h1>
-          Create <br />
-          Minifig
-        </h1>
       </div>
     </div>
     <span class="line"></span>
@@ -51,6 +50,7 @@
 </template>
 
 <script>
+import LegoHead from "@/components/LegoHead.vue";
 import BackToHome from "@/components/BackToHome.vue";
 import BackToTop from "@/components/BackToTop.vue";
 
@@ -64,12 +64,26 @@ export default {
     };
   },
   components: {
+    LegoHead,
     BackToHome,
     BackToTop
   },
   created: async function() {
     await this.fetchData();
     this.loading = false;
+  },
+  computed: {
+    yellowFaced: function() {
+      return this.pickFigsJson.filter(figure => figure.type === "Yellow Faced");
+    },
+    skinFaced: function() {
+      return this.pickFigsJson.filter(figure => figure.type === "Skin Faced");
+    },
+    specialFaced: function() {
+      return this.pickFigsJson.filter(
+        figure => figure.type === "Special Faced"
+      );
+    }
   },
   methods: {
     async fetchData() {
@@ -88,8 +102,7 @@ export default {
         ".content-img"
       ).style.transform = `translateX(-${imageWidth *
         this.currentImageIndex}px)`;
-    },
-    submit() {}
+    }
   }
 };
 </script>
@@ -115,23 +128,11 @@ section {
     padding: 1.5rem;
 
     .content-item {
+      width: 100%;
       display: flex;
       flex-flow: row wrap;
+      justify-content: space-between;
 
-      .content-img {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
-        transition: 0.5s ease;
-        //transform: translateX(-275px); //increases with the width of the img which is 275px
-
-        img {
-          width: 50px;
-          height: auto;
-          padding: 0px 1.5rem;
-        }
-      }
       p {
         padding: 0.5rem;
       }
