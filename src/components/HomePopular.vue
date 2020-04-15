@@ -1,12 +1,12 @@
 <template>
   <section>
     <div v-if="loading" class="loading-wrapper">
-      <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
+      <img v-bind:src="require('@/assets/loader.gif')" alt class="loader" />
     </div>
     <div v-else class="content">
       <h2>Popular Items</h2>
       <p>{{ homePopularsJson.description }}</p>
-      <img v-bind:src="homePopularsJson.img" alt="" />
+      <img v-bind:src="homePopularsJson.img" alt />
     </div>
     <span class="line"></span>
   </section>
@@ -50,6 +50,14 @@ section {
       width: 100%;
       height: auto;
       padding: 1.5rem 0px;
+      z-index: -1;
+    }
+  }
+  .content {
+    h2:active {
+      color: $mango;
+      opacity: 1;
+      transition: all 0.1s ease;
     }
   }
 }
