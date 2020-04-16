@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="header">
-      <BackToHome />
+      <Navigation />
       <div class="header-content">
         <h1>
           Pick a <br />
@@ -50,8 +50,8 @@
 </template>
 
 <script>
+import Navigation from "@/components/Navigation.vue";
 import LegoHead from "@/components/LegoHead.vue";
-import BackToHome from "@/components/BackToHome.vue";
 import BackToTop from "@/components/BackToTop.vue";
 
 export default {
@@ -64,8 +64,8 @@ export default {
     };
   },
   components: {
+    Navigation,
     LegoHead,
-    BackToHome,
     BackToTop
   },
   created: async function() {

@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="header">
-      <BackToHome />
+      <Navigation />
       <div class="header-content">
         <h1>
           Popular <br />
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import BackToHome from "@/components/BackToHome.vue";
+import Navigation from "@/components/Navigation.vue";
 import LegoItem from "@/components/LegoItem.vue";
 import BackToTop from "@/components/BackToTop.vue";
 
@@ -44,7 +44,7 @@ export default {
     };
   },
   components: {
-    BackToHome,
+    Navigation,
     LegoItem,
     BackToTop
   },

@@ -53,12 +53,5 @@ section {
       z-index: -1;
     }
   }
-  .content {
-    h2:active {
-      color: $mango;
-      opacity: 1;
-      transition: all 0.1s ease;
-    }
-  }
 }
 </style>

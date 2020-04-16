@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="header">
-      <BackToHome />
+      <Navigation />
       <div class="header-content">
         <h1>
           Your <br />
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import BackToHome from "@/components/BackToHome.vue";
+import Navigation from "@/components/Navigation.vue";
 import BackToTop from "@/components/BackToTop.vue";
 
 export default {
@@ -49,7 +49,7 @@ export default {
     };
   },
   components: {
-    BackToHome,
+    Navigation,
     BackToTop
   },
   created: async function() {
