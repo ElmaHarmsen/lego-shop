@@ -117,14 +117,14 @@ div {
     height: 100vh;
     position: fixed;
     z-index: 2;
-    left: -100vw;
-    transition: left 0.5s ease;
+    right: -100vw;
+    transition: right 0.5s ease;
     // animation-name: slide;
     // animation-duration: 0.5s;
     // animation-direction: forwards;
 
     &.open {
-      left: 0;
+      right: 0;
     }
 
     .nav-content {
