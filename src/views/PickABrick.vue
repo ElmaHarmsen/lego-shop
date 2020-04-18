@@ -114,7 +114,7 @@ section {
   }
   .content {
     padding: 1.5rem;
-    overflow: hidden;
+    overflow-x: hidden;
 
     .content-header {
       text-align: center;

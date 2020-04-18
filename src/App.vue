@@ -6,6 +6,6 @@
 
 <style lang="scss">
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 </style>

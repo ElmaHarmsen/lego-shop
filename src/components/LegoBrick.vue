@@ -22,7 +22,6 @@ export default {
   display: flex;
   flex-flow: row nowrap;
   transition: 0.5s ease;
-  //transform: translateX(-275px); //increases with the width of the img which is 275px
 
   img {
     width: 280px;
