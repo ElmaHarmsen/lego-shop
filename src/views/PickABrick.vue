@@ -81,7 +81,7 @@ export default {
       this.pickBricksJson = await pickBricks.json();
     },
     goForward() {
-      const imageWidth = document.querySelector(".brick-img").clientWidth;
+      const imageWidth = document.querySelector(".content-item").clientWidth;
       this.currentImageIndex++;
       if (this.currentImageIndex > 2) {
         this.currentImageIndex = 0;
@@ -99,7 +99,7 @@ export default {
 section {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 175px 1fr 15%;
+  grid-template-rows: 175px 1px 1fr 1px 125px;
 
   .header {
     display: flex;
@@ -130,7 +130,7 @@ section {
     .brick-slider {
       display: flex;
       flex-flow: row nowrap;
-      text-align: left;
+      text-align: center;
       transition: 0.5s ease;
     }
     .forward {

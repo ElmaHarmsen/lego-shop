@@ -40,3 +40,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.content-item {
+  flex: 1 0 100%;
+}
+</style>

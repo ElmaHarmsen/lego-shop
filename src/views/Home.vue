@@ -29,6 +29,6 @@ export default {
   background-color: $background;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 175px 1fr 15%;
+  grid-template-rows: 175px 1fr 125px;
 }
 </style>

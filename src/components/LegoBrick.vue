@@ -18,15 +18,15 @@ export default {
 
 <style lang="scss" scoped>
 .content-img {
-  padding: 1.5rem 0px;
+  padding: 1.5rem;
   display: flex;
   flex-flow: row nowrap;
+  justify-content: center;
   transition: 0.5s ease;
 
   img {
-    width: 280px;
+    width: 100%;
     height: auto;
-    padding: 0px 1.5rem;
   }
 }
 </style>
