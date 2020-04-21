@@ -16,22 +16,14 @@
     <div v-else class="content">
       <h1 class="content-header"></h1>
       <span class="line"></span>
-      <div class="brick-slider">
-        <BrickShape v-bind:bricks="squareBrick" />
-        <BrickShape v-bind:bricks="roundBrick" />
-        <BrickShape v-bind:bricks="flatBrick" />
-      </div>
-      <span class="line"></span>
-      <div class="forward">
-        <h1 v-on:click="goForward()">>></h1>
-      </div>
-      <!-- <div class="content-information">
-        <h2>Shape: {{ currentBrick.shape }}</h2>
-        <div>
-          <p>Color: {{ currentBrick.color }}</p>
-          <h1 v-on:click="goForward()">>></h1>
+      <div class="content-stuff">
+        <div class="brick-slider">
+          <BrickShape v-bind:bricks="squareBrick" />
+          <BrickShape v-bind:bricks="roundBrick" />
+          <BrickShape v-bind:bricks="flatBrick" />
         </div>
-      </div> -->
+        <h1 class="forward" v-on:click="goForward()">>></h1>
+      </div>
     </div>
     <span class="line"></span>
     <BackToTop />
@@ -127,34 +119,24 @@ section {
         font-size: 35px;
       }
     }
-    .brick-slider {
+    .content-stuff {
       display: flex;
-      flex-flow: row nowrap;
-      text-align: center;
-      transition: 0.5s ease;
-    }
-    .forward {
-      text-align: right;
-    }
-    .content-information {
-      width: 100%;
+      flex-flow: row;
+      justify-content: center;
+      align-items: center;
 
-      h2 {
-        padding: 1rem 0px;
-      }
-      div {
+      .brick-slider {
         display: flex;
         flex-flow: row nowrap;
-        justify-content: space-between;
-        align-items: center;
-
-        h1 {
-          cursor: pointer;
-        }
+        transition: 0.5s ease;
       }
-    }
-    .line {
-      margin: 1.5rem 0px;
+      .forward {
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        padding: 0px 1.5rem;
+        cursor: pointer;
+      }
     }
   }
 }
