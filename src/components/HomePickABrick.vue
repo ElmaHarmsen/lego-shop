@@ -1,6 +1,6 @@
 <template>
   <section>
-    <span class="line"></span>
+    <span class="line big_not"></span>
     <div v-if="loading" class="loading-wrapper">
       <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
     </div>
@@ -12,7 +12,7 @@
         <!-- <p>{{ homeBricksJson.shape }}, {{ homeBricksJson.color }}</p> -->
       </div>
     </div>
-    <span class="line"></span>
+    <span class="line big_not"></span>
   </section>
 </template>
 
@@ -54,6 +54,18 @@ section {
       width: 90px;
       height: auto;
       padding: 1.5rem 0px;
+    }
+  }
+}
+@media screen and(min-width: 700px) {
+  section {
+    height: 100%;
+
+    .content {
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
     }
   }
 }

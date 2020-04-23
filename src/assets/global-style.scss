@@ -53,3 +53,50 @@ em {
     padding: 1.5rem;
   }
 }
+.big_extra {
+  display: none;
+}
+.big_not {
+  display: inline-block;
+}
+
+
+@media screen and(min-width: 700px) {
+  //Big screen H'es {
+  h1 {
+    color: $mango;
+    font-family: "handlee";
+    font-size: 53px !important;
+    font-weight: bold;
+  }
+  h2 {
+    color: $blue;
+    font-family: "handlee";
+    font-size: 38px !important;
+  }
+  h3 {
+    color: $black;
+    font-size: 28px !important;
+  }
+  //Big screen other reusable stuff
+  p {
+    color: $black;
+    font-family: "halant";
+    font-size: 21px;
+    padding: 7px 0px;
+  }
+  em {
+    color: $black;
+    font-family: "halant";
+    font-size: 15px;
+  }
+  .big_break {
+    display: none;
+  }
+  .big_extra {
+    display: inline-block;
+  }
+  .big_not {
+    display: none;
+  }
+}

@@ -84,4 +84,25 @@ section {
     }
   }
 }
+@media screen and (min-width: 700px) {
+  section {
+    height: 100%;
+    max-height: calc(100% - 3rem);
+
+    .background-content {
+      height: 100%;
+
+      .content {
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+
+        svg {
+          margin: 0px auto;
+        }
+      }
+    }
+  }
+}
 </style>

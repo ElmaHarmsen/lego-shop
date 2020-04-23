@@ -59,6 +59,18 @@ export default {
       );
       this.popularItemsJson = await popularItems.json();
     }
+    // async updateLegoset(setId, newSetData) {
+    //   const updatedSets = await fetch(
+    //     `https://lego--api.herokuapp.com/api/popularitems/${setId}`,
+    //     {
+    //       method: "PUT",
+    //       headers: {
+    //         json
+    //       },
+    //       body: JSON.stringify(newSetData)
+    //     }
+    //   );
+    // }
   }
 };
 </script>

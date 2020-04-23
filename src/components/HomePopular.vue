@@ -50,7 +50,23 @@ section {
       width: 100%;
       height: auto;
       padding: 1.5rem 0px;
-      z-index: -1;
+    }
+  }
+}
+@media screen and(min-width: 700px) {
+  section {
+    height: 100%;
+
+    .content {
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+
+      img {
+        width: 100%;
+        height: auto;
+        margin: auto 0px;
+      }
     }
   }
 }

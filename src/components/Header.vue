@@ -7,7 +7,7 @@
     <!-- !smth means that the item is falsey, otherwise it's true -->
     <div class="content">
       <h1>
-        LEGO <br />
+        LEGO <br class="big_break" />
         universe
       </h1>
     </div>
@@ -65,6 +65,13 @@ section {
   .content {
     padding: 1.5rem 1.5rem 0rem 1.5rem;
     margin: auto 0px;
+  }
+}
+@media screen and(min-width: 700px) {
+  section {
+    .user {
+      display: none;
+    }
   }
 }
 </style>

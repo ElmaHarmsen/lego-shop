@@ -12,7 +12,7 @@
         <!--slider with head, torso and legs, save it into database-->
       </div>
     </div>
-    <span class="line"></span>
+    <span class="line big_not"></span>
   </section>
 </template>
 
@@ -54,6 +54,18 @@ section {
       width: 50px;
       height: auto;
       padding: 1.5rem 0px;
+    }
+  }
+}
+@media screen and(min-width: 700px) {
+  section {
+    height: 100%;
+
+    .content {
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
     }
   }
 }
