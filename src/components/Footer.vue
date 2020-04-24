@@ -39,8 +39,15 @@ section {
       width: 70%;
     }
     .content {
+      em {
+        padding: 0.5rem 0px;
+      }
       a {
         font-size: 15px;
+      }
+      a:hover {
+        color: $mango;
+        transition: 0.2s ease;
       }
     }
   }

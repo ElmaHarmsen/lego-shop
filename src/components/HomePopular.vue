@@ -69,5 +69,8 @@ section {
       }
     }
   }
+  section:hover {
+    cursor: url("https://cdn0.iconfinder.com/data/icons/computers-and-development/432/plugin-2-512.png");
+  }
 }
 </style>

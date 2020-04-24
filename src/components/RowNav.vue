@@ -11,18 +11,29 @@
           {{ navitem.content }}
         </h2>
       </router-link>
+      <div
+        v-on:click="openUser()"
+        class="user"
+        v-bind:class="{ open: useropen }"
+      >
+        <img v-bind:src="require('@/assets/lego-user.png')" alt="" />
+      </div>
+      <User v-bind:isOpen="useropen" />
     </div>
     <span class="line"></span>
   </section>
 </template>
 
 <script>
+import User from "./User.vue";
+
 export default {
   name: "RowNav",
   props: ["navItem"],
   data: function() {
     return {
       navopen: false,
+      useropen: false,
       navContent: [
         {
           id: 0,
@@ -56,6 +67,15 @@ export default {
         }
       ]
     };
+  },
+  components: {
+    User
+  },
+  methods: {
+    openUser() {
+      this.useropen = !this.useropen;
+      document.body.classList.toggle("overflow");
+    }
   }
 };
 </script>
@@ -69,8 +89,10 @@ export default {
     .nav-content {
       display: flex;
       flex-flow: row nowrap;
-      justify-content: flex-start;
+      justify-content: space-between;
+      align-items: center;
       margin: auto 0px;
+      width: 100%;
 
       .nav-item {
         text-decoration: none;
@@ -79,6 +101,38 @@ export default {
           color: $black;
           padding: 0px 1.5rem;
           font-size: 21px !important;
+        }
+      }
+      .nav-item h2:hover {
+        color: $mango;
+        transition: 0.2s ease;
+      }
+      .user {
+        cursor: pointer;
+        height: auto;
+        width: 45px;
+        padding: 0px 1.5rem;
+        text-align: center;
+
+        // width: calc(45px - 2px);
+        // border: 1px solid $black;
+        // border-radius: 50%;
+
+        img {
+          width: 2rem;
+        }
+      }
+      .user:hover {
+        transition: 0.2s ease;
+
+        img {
+          display: none;
+        }
+        &:after {
+          content: "User";
+          font-size: 21px;
+          font-family: "handlee";
+          color: $mango;
         }
       }
     }

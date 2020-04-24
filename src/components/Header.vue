@@ -69,6 +69,8 @@ section {
 }
 @media screen and(min-width: 700px) {
   section {
+    width: 70%;
+    margin: 0px auto;
     .user {
       display: none;
     }

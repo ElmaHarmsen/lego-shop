@@ -7,5 +7,8 @@
 <style lang="scss">
 body {
   overflow-x: hidden;
+  &.overflow {
+    overflow: hidden;
+  }
 }
 </style>

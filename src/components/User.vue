@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section v-bind:class="{ open: isOpen }">
     <div class="user-content">
       <router-link
         class="user-item"
@@ -19,7 +19,7 @@
 <script>
 export default {
   name: "User",
-  props: ["userItem"],
+  props: ["isOpen"],
   data: function() {
     return {
       userContent: [
@@ -61,6 +61,34 @@ section {
 
       h2 {
         color: $black;
+        text-align: center;
+      }
+    }
+  }
+}
+@media screen and(min-width: 700px) {
+  section {
+    width: 70%;
+    margin: 0px auto;
+    position: fixed;
+    z-index: 4;
+    bottom: -100%;
+    height: calc(100% - 180px);
+    transition: all 0.5s ease;
+
+    &.open {
+      bottom: 0;
+    }
+
+    .user-content {
+      width: 100%;
+      height: 100%;
+
+      .user-item {
+        margin: 0px auto;
+        img {
+          width: 25vw;
+        }
       }
     }
   }
