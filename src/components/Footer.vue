@@ -5,7 +5,7 @@
       <h2>Bye</h2>
       <em>Made by Elma Harmsen</em> <em class="big_extra">|</em>
       <br class="big_break" />
-      <em>Visit me at </em
+      <em> Visit me at </em
       ><a href="https://elmaharmsen.nl/" target="blank">elmaharmsen.nl</a>
     </div>
   </section>

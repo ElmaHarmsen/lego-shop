@@ -29,4 +29,12 @@ export default {
     height: auto;
   }
 }
+@media screen and(min-width: 700px) {
+  .content-img {
+    img {
+      width: 50%;
+      height: auto;
+    }
+  }
+}
 </style>

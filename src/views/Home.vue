@@ -34,9 +34,6 @@ export default {
   grid-template-columns: 100%;
   grid-template-rows: 175px 1fr 125px;
 
-  .big_rownav {
-    display: none;
-  }
   .big_middle {
     width: 100%;
   }
@@ -47,12 +44,6 @@ export default {
     grid-template-columns: 100%;
     grid-template-rows: 125px 55px 1fr 100px;
 
-    .big_rownav {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: space-between;
-      align-items: center;
-    }
     .big_middle {
       width: 70%;
       margin: 0px auto;

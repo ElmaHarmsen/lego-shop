@@ -1,8 +1,8 @@
 <template>
   <div class="footer" v-on:click="backToTop">
     <h2>
-      Back to<br />
-      TOP
+      Back to <br class="big_break" />
+      top
     </h2>
   </div>
 </template>

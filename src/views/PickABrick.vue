@@ -1,15 +1,16 @@
 <template>
   <section>
     <div class="header">
-      <Navigation />
+      <Navigation class="big_not" />
       <div class="header-content">
         <h1>
-          Pick a<br />
+          Pick a <br class="big_break" />
           brick
         </h1>
       </div>
     </div>
     <span class="line"></span>
+    <RowNav class="big_rownav" />
     <div v-if="loading" class="loading-wrapper">
       <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
     </div>
@@ -32,6 +33,7 @@
 
 <script>
 import BrickShape from "@/components/BrickShape.vue";
+import RowNav from "@/components/RowNav.vue";
 import Navigation from "@/components/Navigation.vue";
 import BackToTop from "@/components/BackToTop.vue";
 
@@ -47,6 +49,7 @@ export default {
   },
   components: {
     BrickShape,
+    RowNav,
     Navigation,
     BackToTop
   },
@@ -149,6 +152,30 @@ section {
   }
   100% {
     content: "#3: Pick a Brick";
+  }
+}
+@media screen and(min-width: 700px) {
+  section {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 125px 1px 55px 1fr 1px 100px;
+
+    .header,
+    .line,
+    .content {
+      width: 70%;
+      margin: 0px auto;
+    }
+    .content {
+      .line {
+        width: 100% !important;
+      }
+      .content-stuff {
+        .forward {
+          right: 15%;
+        }
+      }
+    }
   }
 }
 </style>

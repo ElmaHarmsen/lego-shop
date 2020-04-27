@@ -1,15 +1,16 @@
 <template>
   <section>
     <div class="header">
-      <Navigation />
+      <Navigation class="big_not" />
       <div class="header-content">
         <h1>
-          Coming <br />
+          Coming <br class="big_break" />
           soon
         </h1>
       </div>
     </div>
     <span class="line"></span>
+    <RowNav class="big_rownav" />
     <div v-if="loading" class="loading-wrapper">
       <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
     </div>
@@ -32,6 +33,7 @@
 
 <script>
 import Navigation from "@/components/Navigation.vue";
+import RowNav from "@/components/RowNav.vue";
 import ComingSoonItem from "@/components/ComingSoonItem.vue";
 import BackToTop from "@/components/BackToTop.vue";
 
@@ -46,6 +48,7 @@ export default {
   },
   components: {
     Navigation,
+    RowNav,
     ComingSoonItem,
     BackToTop
   },
@@ -86,6 +89,20 @@ section {
 
     .results {
       text-align: center;
+    }
+  }
+}
+@media screen and(min-width: 700px) {
+  section {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 125px 1px 55px 1fr 1px 100px;
+
+    .header,
+    .line,
+    .content {
+      width: 70%;
+      margin: 0px auto;
     }
   }
 }

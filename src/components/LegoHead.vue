@@ -42,7 +42,7 @@ div {
     text-align: center;
   }
 
-  .content-img {
+  .head-type-container {
     flex: 1 1 calc(100% / 3);
     height: 110px;
 

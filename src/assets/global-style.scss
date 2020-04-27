@@ -59,7 +59,9 @@ em {
 .big_not {
   display: inline-block;
 }
-
+.big_rownav {
+  display: none;
+}
 
 @media screen and(min-width: 700px) {
   //Big screen H'es {
@@ -98,5 +100,11 @@ em {
   }
   .big_not {
     display: none;
+  }
+  .big_rownav {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
   }
 }

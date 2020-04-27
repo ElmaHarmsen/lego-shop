@@ -69,8 +69,19 @@ section {
       }
     }
   }
-  section:hover {
-    cursor: url("https://cdn0.iconfinder.com/data/icons/computers-and-development/432/plugin-2-512.png");
-  }
+  // section:hover {
+  //   &:after {
+  //     background-color: #03050581;
+  //     content: "Explore";
+  //     color: $blue;
+  //     font-family: "handlee";
+  //     font-size: 35px;
+  //     position: absolute;
+  //     z-index: 1;
+  //     width: calc(70% / 2  - 0.5rem);
+  //     height: calc(1100px - 3rem);
+  //     padding: 1.5rem 0px;
+  //   }
+  // }
 }
 </style>

@@ -1,42 +1,43 @@
 <template>
   <section>
     <div class="header">
-      <Navigation />
+      <Navigation class="big_not" />
       <div class="header-content">
         <h1>
-          Pick a <br />
+          Pick a <br class="big_break" />
           minifig
         </h1>
       </div>
     </div>
     <span class="line"></span>
+    <RowNav class="big_rownav" />
     <div v-if="loading" class="loading-wrapper">
       <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
     </div>
     <div v-else class="content">
-      <div class="content-item">
-        <div
-          class="content-img"
-          v-for="pickFig in yellowFaced"
-          v-bind:key="pickFig.id"
-        >
-          <LegoHead v-bind:pickFig="pickFig" />
+      <div class="heads-container">
+        <div class="head-type-container">
+          <LegoHead
+            v-for="pickFig in yellowFaced"
+            v-bind:key="pickFig.id"
+            v-bind:pickFig="pickFig"
+          />
         </div>
         <span class="line"></span>
-        <div
-          class="content-img"
-          v-for="pickFig in skinFaced"
-          v-bind:key="pickFig.id"
-        >
-          <LegoHead v-bind:pickFig="pickFig" />
+        <div class="head-type-container">
+          <LegoHead
+            v-for="pickFig in skinFaced"
+            v-bind:key="pickFig.id"
+            v-bind:pickFig="pickFig"
+          />
         </div>
         <span class="line"></span>
-        <div
-          class="content-img"
-          v-for="pickFig in specialFaced"
-          v-bind:key="pickFig.id"
-        >
-          <LegoHead v-bind:pickFig="pickFig" />
+        <div class="head-type-container">
+          <LegoHead
+            v-for="pickFig in specialFaced"
+            v-bind:key="pickFig.id"
+            v-bind:pickFig="pickFig"
+          />
         </div>
         <span class="line"></span>
       </div>
@@ -51,6 +52,7 @@
 
 <script>
 import Navigation from "@/components/Navigation.vue";
+import RowNav from "@/components/RowNav.vue";
 import LegoHead from "@/components/LegoHead.vue";
 import BackToTop from "@/components/BackToTop.vue";
 
@@ -65,6 +67,7 @@ export default {
   },
   components: {
     Navigation,
+    RowNav,
     LegoHead,
     BackToTop
   },
@@ -99,7 +102,7 @@ export default {
         this.currentImageIndex = 0;
       } //Sets the index of the last item to 0 so it goes back and start from the beginning
       document.querySelector(
-        ".content-img"
+        ".head-type-container"
       ).style.transform = `translateX(-${imageWidth *
         this.currentImageIndex}px)`;
     }
@@ -127,14 +130,15 @@ section {
   .content {
     padding: 1.5rem;
 
-    .content-item {
+    .heads-container {
       width: 100%;
       display: flex;
-      flex-flow: row wrap;
+      flex-flow: column wrap;
       justify-content: space-between;
 
-      p {
-        padding: 0.5rem;
+      .head-type-container {
+        display: flex;
+        flex-flow: row wrap;
       }
     }
     .line {
@@ -146,6 +150,27 @@ section {
     .submit {
       text-align: center;
       cursor: pointer;
+    }
+  }
+}
+@media screen and(min-width: 700px) {
+  section {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 125px 1px 55px 1fr 1px 100px;
+
+    .header,
+    .line,
+    .content {
+      width: 70%;
+      margin: 0px auto;
+    }
+    .content {
+      .heads-container {
+        .line {
+          width: 100% !important;
+        }
+      }
     }
   }
 }
