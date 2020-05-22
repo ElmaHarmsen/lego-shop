@@ -15,17 +15,11 @@
     </div>
     <div v-else class="content-background">
       <div class="content">
-        <div
-          class="content-item"
-          v-for="yourCollection in yourCollectionsJson"
-          v-bind:key="yourCollection.id"
-        >
-          <div>
-            <h2>{{ yourCollection.name }}</h2>
-            <p>{{ yourCollection.description }}</p>
-          </div>
-          <span class="line"></span>
-        </div>
+        <LegoItem
+          v-for="legoSet in yourCollectionsJson"
+          v-bind:key="legoSet._id"
+          v-bind:legoData="legoSet"
+        />
         <div class="results">
           <em>All results found</em>
         </div>
@@ -38,6 +32,7 @@
 
 <script>
 import Navigation from "@/components/Navigation.vue";
+import LegoItem from "@/components/LegoItem.vue";
 import BackToTop from "@/components/BackToTop.vue";
 
 export default {
@@ -50,6 +45,7 @@ export default {
   },
   components: {
     Navigation,
+    LegoItem,
     BackToTop
   },
   created: async function() {
@@ -59,7 +55,16 @@ export default {
   methods: {
     async fetchData() {
       const yourCollections = await fetch(
-        "https://lego--api.herokuapp.com/api/yourcollection"
+        "https://lego--api.herokuapp.com/api/yourcollection",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(
+            window.localStorage.getItem("favorites").split(",")
+          )
+        }
       );
       this.yourCollectionsJson = await yourCollections.json();
     }
