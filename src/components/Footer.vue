@@ -23,7 +23,7 @@ section {
   text-align: center;
 
   .content {
-    padding: 1rem;
+    padding: 2rem 1rem;
 
     a {
       text-decoration: underline;

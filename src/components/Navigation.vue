@@ -68,7 +68,8 @@ export default {
       this.navopen = !this.navopen;
       //This flips the value around,
       //meaning if it's already true it becomes false, and if it's false it becomes true
-      document.body.classList.toggle("overflow");
+
+      // document.body.classList.toggle("overflow");
     }
   }
 };

@@ -48,7 +48,7 @@ section {
   text-align: center;
 
   .content {
-    padding: 1rem;
+    padding: 2rem 1rem;
 
     img {
       width: 90px;

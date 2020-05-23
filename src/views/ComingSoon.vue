@@ -73,7 +73,7 @@ export default {
 section {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 175px 1px 1fr 1px 125px;
+  grid-template-rows: 145px 1px 1fr 1px 125px;
 
   .header {
     display: flex;
@@ -83,7 +83,7 @@ section {
 
     .header-content {
       margin: auto 0px;
-      padding: 1.5rem 1.5rem 0rem 1.5rem;
+      padding: 1rem 1rem 0rem 1rem;
     }
   }
   .content-background {
@@ -98,7 +98,7 @@ section {
 
     .content {
       background-color: $background;
-      padding: 1.5rem;
+      padding: 1rem;
 
       .results {
         text-align: center;

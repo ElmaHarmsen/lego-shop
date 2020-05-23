@@ -94,7 +94,7 @@ export default {
 section {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 175px 1px 1fr 1px 125px;
+  grid-template-rows: 145px 1px 1fr 1px 125px;
 
   .header {
     display: flex;

@@ -32,7 +32,7 @@ export default {
   background-color: $background;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 175px 1fr 125px;
+  grid-template-rows: 145px 1fr 130px;
 
   .big_middle {
     width: 100%;
