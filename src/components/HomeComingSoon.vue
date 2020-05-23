@@ -91,6 +91,12 @@ section {
           margin: auto 0px;
         }
       }
+      .content:hover {
+        h2 {
+          color: $mango;
+          transition: 0.3s ease;
+        }
+      }
     }
   }
 }

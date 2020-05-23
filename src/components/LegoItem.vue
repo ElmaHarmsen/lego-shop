@@ -1,6 +1,6 @@
 <template>
   <section class="lego-item">
-    <img v-bind:src="legoData.img" alt="" />
+    <img v-bind:src="legoData.images[0].img" alt="" />
     <div class="lego-item-content">
       <div class="title">
         <h2>{{ legoData.title }}</h2>
@@ -9,7 +9,7 @@
       <p>
         {{ legoData.description }} <br />
         <br />
-        {{ legoData.year }} | #{{ legoData.setnumber }} | Pieces:
+        {{ legoData.releasedate }} | #{{ legoData.setnumber }} | Pieces:
         {{ legoData.pieces }}
       </p>
     </div>

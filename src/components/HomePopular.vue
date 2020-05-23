@@ -6,7 +6,7 @@
     <div v-else class="content">
       <h2>Popular Items</h2>
       <p>{{ homePopularsJson.description }}</p>
-      <img v-bind:src="homePopularsJson.img" alt />
+      <img v-bind:src="homePopularsJson.images[0].img" alt />
     </div>
     <span class="line"></span>
   </section>
@@ -69,20 +69,12 @@ section {
         margin: auto 0px;
       }
     }
+    .content:hover {
+      h2 {
+        color: $mango;
+        transition: 0.3s ease;
+      }
+    }
   }
-  // section:hover {
-  //   &:after {
-  //     background-color: #03050581;
-  //     content: "Explore";
-  //     color: $blue;
-  //     font-family: "handlee";
-  //     font-size: 35px;
-  //     position: absolute;
-  //     z-index: 1;
-  //     width: calc(70% / 2  - 0.5rem);
-  //     height: calc(1100px - 3rem);
-  //     padding: 1.5rem 0px;
-  //   }
-  // }
 }
 </style>

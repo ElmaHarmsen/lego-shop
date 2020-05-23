@@ -119,6 +119,12 @@ section {
           margin: 0px auto;
         }
       }
+      .content:hover {
+        h2 {
+          color: $mango;
+          transition: 0.3s ease;
+        }
+      }
     }
   }
 }

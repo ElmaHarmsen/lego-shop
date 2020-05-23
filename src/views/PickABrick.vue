@@ -104,11 +104,11 @@ section {
 
     .header-content {
       margin: auto 0px;
-      padding: 1.5rem 1.5rem 0rem 1.5rem;
+      padding: 1rem 1rem 0rem 1rem;
     }
   }
   .content {
-    padding: 1.5rem;
+    padding: 1rem;
     overflow-x: hidden;
 
     .content-header {
@@ -166,7 +166,14 @@ section {
       width: 70%;
       margin: 0px auto;
     }
+    .header {
+      .header-content {
+        padding: 1.5rem 1.5rem 0rem 1.5rem;
+      }
+    }
     .content {
+      padding: 1.5rem;
+
       .line {
         width: 100% !important;
       }

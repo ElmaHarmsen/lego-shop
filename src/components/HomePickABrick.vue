@@ -68,6 +68,12 @@ section {
       justify-content: center;
       padding: 1.5rem;
     }
+    .content:hover {
+      h2 {
+        color: $mango;
+        transition: 0.3s ease;
+      }
+    }
   }
 }
 </style>

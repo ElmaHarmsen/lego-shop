@@ -115,6 +115,11 @@ section {
       width: 70%;
       margin: 0px auto;
     }
+    .header {
+      .header-content {
+        padding: 1.5rem 1.5rem 0rem 1.5rem;
+      }
+    }
   }
 }
 </style>

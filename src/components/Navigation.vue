@@ -119,9 +119,6 @@ div {
     z-index: 2;
     right: -100vw;
     transition: right 0.5s ease;
-    // animation-name: slide;
-    // animation-duration: 0.5s;
-    // animation-direction: forwards;
 
     &.open {
       right: 0;
@@ -146,12 +143,4 @@ div {
     }
   }
 }
-// @keyframes slide {
-//   from {
-//     left: -100vw;
-//   }
-//   to {
-//     left: 0;
-//   }
-// }
 </style>
