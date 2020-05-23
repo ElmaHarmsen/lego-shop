@@ -1,15 +1,22 @@
 <template>
   <section>
-    <!-- <div v-if="collection" class="background-content">
+    <div v-if="homeYourCollectionsJson" class="background-content">
       <div class="content">
-        <img v-bind:src="homeYourCollectionsJson.img" alt="" />
         <div class="information">
-          <h2>Your Collection</h2>
-          <p>{{ homeYourCollectionJson.description }}</p>
+          <svg viewBox="0 0 24 24" fill="#ECA903" width="35px" height="35px">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+            />
+          </svg>
+          <div class="information">
+            <h2>In Your Collection</h2>
+            <p>{{ homeYourCollectionsJson.title }}</p>
+          </div>
         </div>
       </div>
-    </div> -->
-    <div class="background-content">
+    </div>
+    <div v-else class="background-content">
       <div class="content">
         <svg viewBox="0 0 24 24" fill="#ECA903" width="40px" height="40px">
           <path d="M0 0h24v24H0z" fill="none" />
@@ -32,7 +39,7 @@ export default {
   data: function() {
     return {
       loading: true,
-      homeYourCollectionsJson: []
+      homeYourCollectionsJson: null
     };
   },
   created: async function() {
@@ -41,10 +48,19 @@ export default {
   },
   methods: {
     async fetchData() {
-      const homeCollections = await fetch(
-        "https://lego--api.herokuapp.com/api/homeyourcollection"
+      const homeYourCollectionsJson = await fetch(
+        "https://lego--api.herokuapp.com/api/homeyourcollection",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(
+            window.localStorage.getItem("favorites").split(",")
+          )
+        }
       );
-      this.homeYourCollectionsJson = await homeCollections.json();
+      this.homeYourCollectionsJson = await homeYourCollectionsJson.json();
     }
   }
 };
@@ -59,7 +75,7 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 1.5rem;
+  padding: 1rem;
   margin-bottom: -0.8rem; //for some weird ofset (oops)
   background: repeating-linear-gradient(
     -45deg,
@@ -88,6 +104,7 @@ section {
   section {
     height: 100%;
     max-height: calc(100% - 3rem);
+    padding: 1.5rem;
 
     .background-content {
       height: 100%;

@@ -48,7 +48,7 @@ section {
   text-align: center;
 
   .content {
-    padding: 1.5rem;
+    padding: 1rem;
 
     img {
       width: 50px;
@@ -66,6 +66,7 @@ section {
       display: flex;
       flex-flow: column;
       justify-content: center;
+      padding: 1.5rem;
     }
   }
 }

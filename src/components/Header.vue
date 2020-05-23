@@ -47,8 +47,8 @@ section {
 
   .user {
     position: fixed;
-    right: 1.5rem;
-    top: 1.5rem;
+    right: 1rem;
+    top: 1rem;
     z-index: 5;
     cursor: pointer;
     height: auto;
@@ -63,7 +63,7 @@ section {
   }
 
   .content {
-    padding: 1.5rem 1.5rem 0rem 1.5rem;
+    padding: 1rem 1rem 0rem 1rem;
     margin: auto 0px;
   }
 }
@@ -73,6 +73,9 @@ section {
     margin: 0px auto;
     .user {
       display: none;
+    }
+    .content {
+      padding: 1.5rem 1.5rem 0rem 1.5rem;
     }
   }
 }

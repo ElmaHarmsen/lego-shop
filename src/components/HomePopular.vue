@@ -44,7 +44,7 @@ section {
   text-align: center;
 
   .content {
-    padding: 1.5rem;
+    padding: 1rem;
 
     img {
       width: 100%;
@@ -61,6 +61,7 @@ section {
       height: 100%;
       display: flex;
       flex-flow: column;
+      padding: 1.5rem;
 
       img {
         width: 100%;

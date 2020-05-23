@@ -78,13 +78,12 @@ export default {
 div {
   .nav {
     position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
+    top: 1rem;
+    right: 1rem;
     z-index: 3;
     cursor: pointer;
     height: calc(42px - 2px);
     width: calc(45px - 2px);
-    right: 1.5rem;
     border: 1px solid $black;
     border-radius: 50%;
     display: flex;

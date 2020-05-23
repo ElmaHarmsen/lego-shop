@@ -48,8 +48,9 @@ export default {
 <style lang="scss" scoped>
 div {
   span {
-    padding: 1rem 0px;
-    cursor: pointer;
+    svg {
+      margin: 1rem 0px;
+    }
   }
 }
 </style>

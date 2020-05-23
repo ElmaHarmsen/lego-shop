@@ -23,7 +23,7 @@ section {
   text-align: center;
 
   .content {
-    padding: 1.5rem;
+    padding: 1rem;
 
     a {
       text-decoration: underline;
@@ -39,6 +39,8 @@ section {
       width: 70%;
     }
     .content {
+      padding: 1.5rem;
+
       em {
         padding: 0.5rem 0px;
       }

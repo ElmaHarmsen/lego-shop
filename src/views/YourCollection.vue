@@ -1,15 +1,16 @@
 <template>
   <section>
     <div class="header">
-      <Navigation />
+      <Navigation class="big_not" />
       <div class="header-content">
         <h1>
-          Your <br />
+          Your <br class="big_break" />
           collection
         </h1>
       </div>
     </div>
     <span class="line"></span>
+    <RowNav class="big_rownav" />
     <div v-if="loading" class="loading-wrapper">
       <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
     </div>
@@ -32,6 +33,7 @@
 
 <script>
 import Navigation from "@/components/Navigation.vue";
+import RowNav from "@/components/RowNav.vue";
 import LegoItem from "@/components/LegoItem.vue";
 import BackToTop from "@/components/BackToTop.vue";
 
@@ -45,6 +47,7 @@ export default {
   },
   components: {
     Navigation,
+    RowNav,
     LegoItem,
     BackToTop
   },
@@ -90,7 +93,7 @@ section {
     }
   }
   .content-background {
-    padding: 1.5rem;
+    padding: 1rem;
     background: repeating-linear-gradient(
       -45deg,
       #eca903,
@@ -100,7 +103,7 @@ section {
     );
     .content {
       background-color: $background;
-      padding: 1.5rem;
+      padding: 1rem;
 
       .content-item {
         display: flex;
@@ -117,10 +120,32 @@ section {
       }
 
       .line {
-        margin: 1.5rem 0px;
+        margin: 1rem 0px;
       }
       .results {
         text-align: center;
+      }
+    }
+  }
+}
+@media screen and(min-width: 700px) {
+  section {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 125px 1px 55px 1fr 1px 100px;
+
+    .header,
+    .line,
+    .content-background {
+      width: 70%;
+      margin: 0px auto;
+    }
+    .content-background {
+      width: calc(70% - 3rem);
+      padding: 1.5rem;
+
+      .content {
+        padding: 1.5rem;
       }
     }
   }

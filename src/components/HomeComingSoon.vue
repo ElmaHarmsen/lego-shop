@@ -48,7 +48,7 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 1.5rem;
+  padding: 1rem;
   background: repeating-linear-gradient(
     -45deg,
     #0e9ab0,
@@ -77,6 +77,7 @@ section {
   section {
     height: 100%;
     max-height: calc(100% - 3rem);
+    padding: 1.5rem;
 
     .background-content {
       height: 100%;
