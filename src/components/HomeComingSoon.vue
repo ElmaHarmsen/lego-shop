@@ -3,11 +3,13 @@
     <div v-if="loading" class="loading-wrapper">
       <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
     </div>
-    <div v-else class="content">
-      <img v-bind:src="homeComingSoonsJson.images[1].img" alt="" />
-      <div class="information">
-        <h2>Coming Soon</h2>
-        <p>{{ homeComingSoonsJson.title }}</p>
+    <div v-else class="background-content">
+      <div class="content">
+        <img v-bind:src="homeComingSoonsJson.images[1].img" alt="" />
+        <div class="information">
+          <h2>Coming Soon</h2>
+          <p>{{ homeComingSoonsJson.title }}</p>
+        </div>
       </div>
     </div>
   </section>
