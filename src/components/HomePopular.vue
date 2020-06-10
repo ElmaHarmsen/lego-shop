@@ -56,6 +56,8 @@ section {
 @media screen and(min-width: 700px) {
   section {
     height: 100%;
+    border-left: 1px solid $grey;
+    border-right: 1px solid $grey;
 
     .content {
       height: 100%;

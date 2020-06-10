@@ -36,10 +36,11 @@ section {
 @media screen and(min-width: 700px) {
   section {
     .line {
+      margin-bottom: 1rem;
       width: 70%;
     }
     .content {
-      padding: 1.5rem;
+      padding: 1rem 1.5rem 1.5rem 1.5rem;
 
       em {
         padding: 0.5rem 0px;

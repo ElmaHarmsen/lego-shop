@@ -14,18 +14,16 @@
     <div v-if="loading" class="loading-wrapper">
       <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
     </div>
-    <div v-else class="content-background">
-      <div class="content">
-        <div
-          class="content-item"
-          v-for="comingSoon in comingSoonsJson"
-          v-bind:key="comingSoon.id"
-        >
-          <ComingSoonItem v-bind:soonData="comingSoon" />
-        </div>
-        <div class="results">
-          <em>All results found</em>
-        </div>
+    <div v-else class="content">
+      <div
+        class="content-item"
+        v-for="comingSoon in comingSoonsJson"
+        v-bind:key="comingSoon.id"
+      >
+        <ComingSoonItem v-bind:soonData="comingSoon" />
+      </div>
+      <div class="results">
+        <em>All results found</em>
       </div>
     </div>
     <span class="line"></span>
@@ -86,23 +84,11 @@ section {
       padding: 1rem 1rem 0rem 1rem;
     }
   }
-  .content-background {
+  .content {
     padding: 1rem;
-    background: repeating-linear-gradient(
-      -45deg,
-      #0e9ab0,
-      #0e9ab0 15px,
-      #fff 15px,
-      #fff 30px
-    );
 
-    .content {
-      background-color: $background;
-      padding: 1rem;
-
-      .results {
-        text-align: center;
-      }
+    .results {
+      text-align: center;
     }
   }
 }
@@ -114,7 +100,7 @@ section {
 
     .header,
     .line,
-    .content-background {
+    .content {
       width: 70%;
       margin: 0px auto;
     }
@@ -122,10 +108,6 @@ section {
       .header-content {
         padding: 1.5rem 1.5rem 0rem 1.5rem;
       }
-    }
-    .content-background {
-      width: calc(70% - 3rem);
-      padding: 1.5rem;
     }
   }
 }

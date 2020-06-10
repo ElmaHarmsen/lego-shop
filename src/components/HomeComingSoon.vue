@@ -3,13 +3,11 @@
     <div v-if="loading" class="loading-wrapper">
       <img v-bind:src="require('@/assets/loader.gif')" alt="" class="loader" />
     </div>
-    <div v-else class="background-content">
-      <div class="content">
-        <img v-bind:src="homeComingSoonsJson.images[1].img" alt="" />
-        <div class="information">
-          <h2>Coming Soon</h2>
-          <p>{{ homeComingSoonsJson.title }}</p>
-        </div>
+    <div v-else class="content">
+      <img v-bind:src="homeComingSoonsJson.images[1].img" alt="" />
+      <div class="information">
+        <h2>Coming Soon</h2>
+        <p>{{ homeComingSoonsJson.title }}</p>
       </div>
     </div>
   </section>
@@ -48,14 +46,7 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 1rem;
-  background: repeating-linear-gradient(
-    -45deg,
-    #0e9ab0,
-    #0e9ab0 15px,
-    #fff 15px,
-    #fff 30px
-  );
+
   .background-content {
     background-color: $background;
 
@@ -76,8 +67,10 @@ section {
 @media screen and(min-width: 700px) {
   section {
     height: 100%;
-    max-height: calc(100% - 3rem);
-    padding: 1.5rem;
+    max-height: 100%;
+    border-left: 1px solid $grey;
+    border-right: 1px solid $grey;
+    border-bottom: 1px solid $grey;
 
     .background-content {
       height: 100%;
